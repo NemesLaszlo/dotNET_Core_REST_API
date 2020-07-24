@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Commander.Models;
-using Commander.Service;
+using Commander.Repository;
 
 namespace Commander.Controllers
 {
@@ -10,7 +10,12 @@ namespace Commander.Controllers
     [ApiController]
     public class CommandsController : ControllerBase
     {
-        private readonly CommanderService _commanderService = new CommanderService();
+        private readonly ICommanderRepo _commanderService;
+
+        public CommandsController(ICommanderRepo commanderService)
+        {
+            _commanderService = commanderService;
+        }
 
         //GET api/commands
         [HttpGet]
