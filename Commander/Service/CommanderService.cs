@@ -40,6 +40,9 @@ namespace Commander.Service
             _context.Commands.Add(newCommand);
         }
 
-
+        public void UpdateCommand(Command updateCommand)
+        {
+            
+        }
     }
 }

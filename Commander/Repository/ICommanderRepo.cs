@@ -9,6 +9,7 @@ namespace Commander.Repository
         IEnumerable<Command> GetAllCommands();
         Command GetCommandById(int id);
         void CreateCommand(Command newCommand);
+        void UpdateCommand(Command updateCommand);
 
     }
 
