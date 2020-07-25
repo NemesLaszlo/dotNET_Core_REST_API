@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Commander.Models;
@@ -14,6 +15,11 @@ namespace Commander.Service
             _context = context;
         }
 
+        public bool SaveChanges()
+        {
+            return (_context.SaveChanges() >= 0);
+        }
+
         public IEnumerable<Command> GetAllCommands()
         {
             return _context.Commands.ToList();
@@ -23,5 +29,17 @@ namespace Commander.Service
         {
             return _context.Commands.FirstOrDefault(p => p.Id == id);
         }
+
+        public void CreateCommand(Command newCommand)
+        {
+            if (newCommand == null)
+            {
+                throw new ArgumentNullException(nameof(newCommand));
+            }
+
+            _context.Commands.Add(newCommand);
+        }
+
+
     }
 }
