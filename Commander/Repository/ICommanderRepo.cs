@@ -11,6 +11,7 @@ namespace Commander.Repository
         void CreateCommand(Command newCommand);
         void UpdateCommand(Command updateCommand);
         void DeleteCommand(Command deleteCommand);
+        void DeleteAllCommand(IEnumerable<Command> allCommand);
 
     }
 

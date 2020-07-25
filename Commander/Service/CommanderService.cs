@@ -54,5 +54,10 @@ namespace Commander.Service
 
             _context.Commands.Remove(deleteCommand);
         }
+
+        public void DeleteAllCommand(IEnumerable<Command> allCommand)
+        {
+            allCommand.ToList().ForEach(i => { _context.Commands.Remove(i); });
+        }
     }
 }

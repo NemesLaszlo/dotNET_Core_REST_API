@@ -23,7 +23,7 @@ namespace Commander.Controllers
         }
 
         //GET api/commands
-        [HttpGet]
+        [HttpGet(Name = "GetAllCommands")]
         public ActionResult<IEnumerable<CommandReadDto>> GetAllCommands()
         {
             var commandItems = _commanderService.GetAllCommands();
@@ -112,7 +112,18 @@ namespace Commander.Controllers
             _commanderService.SaveChanges();
 
             return NoContent();
+        }
 
+        // DELETE api/commands/deleteall
+        [HttpDelete("deleteall")]
+        public ActionResult DeleteAllCommand()
+        {
+            var commandItems = _commanderService.GetAllCommands();
+
+            _commanderService.DeleteAllCommand(commandItems);
+            _commanderService.SaveChanges();
+
+            return NoContent();
         }
 
     }
