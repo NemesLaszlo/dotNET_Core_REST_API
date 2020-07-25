@@ -98,5 +98,22 @@ namespace Commander.Controllers
             return NoContent();
         }
 
+        // DELETE api/commands/delete/{id}
+        [HttpDelete("delete/{id}")]
+        public ActionResult DeleteCommand(int id)
+        {
+            var commandModelFromService = _commanderService.GetCommandById(id);
+            if (commandModelFromService == null)
+            {
+                return NotFound();
+            }
+
+            _commanderService.DeleteCommand(commandModelFromService);
+            _commanderService.SaveChanges();
+
+            return NoContent();
+
+        }
+
     }
 }

@@ -42,7 +42,17 @@ namespace Commander.Service
 
         public void UpdateCommand(Command updateCommand)
         {
-            
+
+        }
+
+        public void DeleteCommand(Command deleteCommand)
+        {
+            if (deleteCommand == null)
+            {
+                throw new ArgumentNullException(nameof(deleteCommand));
+            }
+
+            _context.Commands.Remove(deleteCommand);
         }
     }
 }

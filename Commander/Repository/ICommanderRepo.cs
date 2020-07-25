@@ -10,6 +10,7 @@ namespace Commander.Repository
         Command GetCommandById(int id);
         void CreateCommand(Command newCommand);
         void UpdateCommand(Command updateCommand);
+        void DeleteCommand(Command deleteCommand);
 
     }
 
