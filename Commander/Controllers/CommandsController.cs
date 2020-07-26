@@ -5,10 +5,11 @@ using Commander.Repository;
 using AutoMapper;
 using Commander.Dtos;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Commander.Controllers
 {
-
+    [Authorize]
     [Route("api/commands")]
     [ApiController]
     public class CommandsController : ControllerBase
